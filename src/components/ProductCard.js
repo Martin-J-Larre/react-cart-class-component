@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import Button from '../components/Button'
 
 
 const styles = {
@@ -12,12 +13,16 @@ const styles = {
   },
   image: {
     width: '100%'
+  },
+  text: {
+    margin: '5px 0',
+    textAlign: 'center'
   }
 }
 
 class ProductCard extends Component{
   render(){
-    const { product } = this.props;
+    const { product, addToCart } = this.props;
     return(
       <div style={ styles.product }>
         <img 
@@ -25,8 +30,11 @@ class ProductCard extends Component{
           alt={ product.name } 
           src={ product.img }
         />
-        <h3>{ product.name }</h3>
-        <p>{ product.price }</p>
+        <h3 style={styles.text}>{ product.name }</h3>
+        <p style={styles.text}>{ product.price }</p>
+        <Button onClick={() => addToCart(product)}>
+          Add to cart
+        </Button>
       </div>
     )
   }

@@ -1,5 +1,6 @@
 import { Component,Fragment } from 'react';
 import  ProductsList  from './components/ProductsList';
+import  Layout  from './components/Layout';
 
 class App extends Component {
   state = {
@@ -17,10 +18,12 @@ class App extends Component {
   render(){
     return (
       <Fragment>
+        <Layout>
         <ProductsList
           addToCart={() => console.log("Working")}
           products={this.state.products}
         />
+        </Layout>
       </Fragment>
     )
   }
